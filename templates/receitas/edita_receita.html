@@ -55,8 +55,13 @@
                                 <input type="text" class="form-control" name="categoria" placeholder="Ex. Sucos e bebidas" value="{{receita.categoria}}"required>
                             </div>
                             <div class="col-12 col-lg-4">
-                                <label for="file"><b>Foto utilizada</b></label>
-                                <img src="{{ receita.foto_receita.url }}" alt="">
+                                {% if receita.foto_receita == '' %}
+                                    <label for="file"><b>Foto utilizada</b></label>
+                                    <img src="{% static 'img/bg-img/foto_receita.png' %}" alt="">
+                                {% else %}
+                                    <label for="file"><b>Foto utilizada</b></label>
+                                    <img src="{{ receita.foto_receita.url }}" alt="">
+                                 {% endif %}
                             </div>
                             <div class="col-12 col-lg-4">
                                 <label for="file"><b>Adicionar nova foto</b></label>
